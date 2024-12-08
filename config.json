@@ -1,0 +1,13 @@
+{
+    "Window": {
+        "BoardSize": 3,
+        "WinSize": 3,
+        "Scale": 1
+    },
+    "Colors": {
+        "Background": "(0,0,0)",
+        "Lines": "(255,255,255)",
+        "Circle": "(0,0,255)",
+        "X": "(255,0,0)"
+    }
+}
