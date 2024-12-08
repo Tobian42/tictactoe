@@ -98,10 +98,10 @@ def Win(Player):
 
             # Check if the Player won
             if StreakH >= WinSize:
-                DrawHorizontalLine(foo, Player)
+                DrawHorizontalLine(foo, moo, Player)
                 return True
             if StreakV >= WinSize:
-                DrawVerticalLine(foo, Player)
+                DrawVerticalLine(moo, foo, Player)
                 return True
             if StreakDR >= WinSize:
                 if DrawDiagonalLine(moo, foo, Player, WinSize, Direction = "Right"):
@@ -113,20 +113,28 @@ def Win(Player):
     return False
 
 # Mark Win
-def DrawVerticalLine(col, Player):
-    posX = col * SquareSize + SquareSize / 2
+def DrawHorizontalLine(row, col, Player):
+    X1 = col * SquareSize + (SquareSize * 0.9)
+    Y1 = row * SquareSize + (SquareSize / 2)
+    X2 = (col - (WinSize - 1)) * SquareSize + (SquareSize * 0.1)
+    Y2 = Y1
+    
     if Player == 1:
-        pygame.draw.line(Screen, CircleColor, (posX, 10), (posX, ScreenSize - 10), LineWidth)
+        pygame.draw.line(Screen, CircleColor, (X1, Y1), (X2, Y2), LineWidth)
     else:
-        pygame.draw.line(Screen, XColor, (posX, 10), (posX, ScreenSize - 10), LineWidth)
-        
-def DrawHorizontalLine(row, Player):
-    posY = row * SquareSize + SquareSize / 2
-    if Player == 1:
-        pygame.draw.line(Screen, CircleColor, (10, posY), (ScreenSize - 10, posY), LineWidth)
-    else:
-        pygame.draw.line(Screen, XColor, (10, posY), (ScreenSize - 10, posY), LineWidth)
+        pygame.draw.line(Screen, XColor, (X1, Y1), (X2, Y2), LineWidth)
 
+def DrawVerticalLine(row, col, Player):
+    X1 = col * SquareSize + (SquareSize / 2)
+    Y1 = row * SquareSize + (SquareSize * 0.9)
+    X2 = X1
+    Y2 = (row - (WinSize - 1)) * SquareSize + (SquareSize * 0.1)
+
+    if Player == 1:
+        pygame.draw.line(Screen, CircleColor, (X1, Y1), (X2, Y2), LineWidth)
+    else:
+        pygame.draw.line(Screen, XColor, (X1, Y1), (X2, Y2), LineWidth)
+        
 def DrawDiagonalLine(row, col, Player, WinSize, Direction):
     # Calculate from which squares the line has to be drawn
     if Direction == "Right":
@@ -176,6 +184,9 @@ Screen.fill(BackgroundColor)
 pygame.display.update()
 DrawLines()
 
+# Can be removed if wished
+print("Have fun playing! :)")
+
 # The Game
 while True:
     for event in pygame.event.get():
@@ -202,6 +213,3 @@ while True:
                 Gameover = True
     DrawFigures()
     pygame.display.update()
-
-# Can be removed if wished
-print("Have fun playing! :)")
