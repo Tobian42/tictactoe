@@ -1,6 +1,6 @@
 # Welcome to my small little TicTacToe game written in python!
 
-# RUN THIS AT YOUR OWN RISK! as I have no Idea what I wrote
+## RUN THIS AT YOUR OWN RISK! as I have no Idea what I wrote
 
 
 ### What you will need:

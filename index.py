@@ -7,6 +7,8 @@
 # based on: https://pythongeeks.org/python-tic-tac-toe-game/
 # please report any bug on github: https://github.com/Tobian42/tictactoe
 
+# Version 1.0
+
 # Imports
 from config import *
 import numpy

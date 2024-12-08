@@ -1,4 +1,4 @@
-# Prase config.json file
+# Prase config.json file and check if the values can be used in the index file
 #imports
 import json
 import re
