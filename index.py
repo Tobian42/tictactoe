@@ -5,7 +5,7 @@
 ##################################
 
 # based on: https://pythongeeks.org/python-tic-tac-toe-game/
-# please report any bug on github: 
+# please report any bug on github: https://github.com/Tobian42/tictactoe
 
 # Imports
 from config import *
@@ -143,6 +143,9 @@ def DrawDiagonalLine(row, col, Player, WinSize, Direction):
     # Check if calculated squares are inside the board
     if col >= BoardSize or row >= BoardSize: return False
     if Scol >= BoardSize or row >= BoardSize: return False
+
+    if col < 0 or row < 0: return False
+    if Scol < 0 or row < 0: return False
     # Calculate the positions
     if Direction == "Right":
         X1 = col * SquareSize + (SquareSize * 0.9)
